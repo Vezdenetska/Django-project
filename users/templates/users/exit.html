@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block h1 %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+<div class="exit mt-5">
+  <a href="{% url 'login' %}">
+    <button class="btn btn-outline-info">Log in</button>
+  </a>
+</div>
+{% endblock %}
+

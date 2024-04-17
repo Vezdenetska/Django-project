@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block h1 %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+  <form method="post" class="form-register">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-outline-warning" type="submit">Rejestracja</button>
+    <br>
+    <div class="container mt-4">
+      Masz już konto? <a href="{% url 'login' %}">Wejdź</a>
+    </div>
+  </form>
+{% endblock %}
+

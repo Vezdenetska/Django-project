@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+  Logowanie
+{% endblock %}
+
+{% block h1 %}
+    Wejdź do swego profilu
+{% endblock %}
+
+{% block body %}
+  <form method="post" class="form-register">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-outline-warning" type="submit">Wejdź</button>
+    <hr>
+    <div class="container mt-4">
+      <a href="{% url 'reset-pass' %}" class="btn btn-outline-danger">Nie pamiętasz hasła?</a>
+    </div>
+  </form>
+{% endblock %}
+

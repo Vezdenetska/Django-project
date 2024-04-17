@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10+Charted&display=swap');
+
+body {
+  background: #efefef;
+}
+
+a {
+  text-decoration: none;
+  color: #2b060e;
+}
+a:hover {
+  text-decoration: none;
+  color: #fe920d;
+}
+.navbar-brand {
+  font-weight: 700;
+  font-size: 50px;
+  font-style: bold;
+  transition: all 0.6s ease;
+  margin-bottom: 10px;
+}
+.navbar-brand:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+.navbar .nav-item {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 40px;
+}
+
+.abt p {
+  font-family: "Jersey 10 Charted", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+}
+.alert-light {
+  border-color: #bfbfbf;
+}
+
+.user_img {
+  width:64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.form-register {
+  padding: 20px;
+  background: #fafafa;
+  border: 1px solid silver;
+  margin-top: 20px;
+}
+
+.form-register .helptext {color: #b7b7b7}
+
+.form-register ul.errorlist {
+    color: #ca5858;
+    font-weight: bold;
+}
+
+.form-register.auth input, .form-register.auth textarea {
+  display: block;
+  width: 92%;
+  margin-top: 10px;
+  padding: 2%;
+}
+
+footer {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+footer ul li {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+footer ul li {
+    margin-right: 80px;
+}
+footer ul li a {
+  color: #000000;
+}
+footer ul li a:hover {
+    color: #298628;
+}
+@media (max-width: 900px){
+  footer ul li {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px;
+    margin: auto;
+  }
+  footer ul li:not(:first-child) {  
+    display: flex;
+    margin-top: 20px;
+  }
+}

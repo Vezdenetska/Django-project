@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+  Profil osobisty
+{% endblock %}
+
+{% block h1 %}
+  Witaj, {{ user.username }}! 
+{% endblock %}
+
+{% block body %}
+ <div class="media pt-3">
+    <img class="bd-placeholder-img mr-2 rounded" width="64" height="64" src="{{ user.profile.img.url }}">
+    <p class="media-body">
+      <strong class="d-block">{{ user.username }}</strong>
+      {% if user.email %}
+      <b>Email: {{ user.email }}</b>
+      {% endif %}
+    </p>
+  </div>
+  <h2 class="mt-5">Możesz tu zmienić swoje dane</h2>
+  <form method="post" enctype="multipart/form-data" class="form-register mt-2">
+    {% csrf_token %}
+    {{ updateUserForm.as_p }}
+    <hr>
+    {{ profileForm.as_p }}
+    <button class="btn btn-outline-warning" type="submit">Zapisz zmiany</button>
+  </form>   
+{% endblock %}
+{% block aside %}
+    <img src="{{ user.profile.img.url }}" class="img-thumbnail mt-4">
+{% endblock %}
+

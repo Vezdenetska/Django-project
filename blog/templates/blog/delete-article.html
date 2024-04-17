@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block h1 %}
+    Czy chcesz usunąć artykuł o nazwie "{{ object.title }}"
+{% endblock %}
+
+{% block body %}
+  <form method="post" class="form-register">
+    {% csrf_token %}
+    <button class="btn btn-outline-danger" type="submit">Usuń</button>
+    <a class="mr-4" href="{% url 'article' object.id %}">Nie</a>
+  </form>
+
+{% endblock %}

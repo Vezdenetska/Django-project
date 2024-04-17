@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block h1 %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    {% for unit in news %}
+        <div class="alert alert-light">
+            <h3>{{ unit.title }}</h3>
+            <p>{{ unit.text|striptags|truncatechars:100 }}</p>
+            <div class="row">
+                <div>
+                    <img src="{{ unit.avtor.profile.img.url }}" alt="{{ unit.avtor }}" class="user_img">
+                </div>
+                <div class="mt-2">
+                    <span class="text-muted">Opublikowany: {{ unit.date|date:"j F Y, H:i" }}</span>
+                    <p>
+                        <b>Autor:</b> 
+                        <a href="{% url 'user-articles' unit.avtor %}">{{ unit.avtor }}</a>
+                    </p>
+                </div>
+            </div>
+            <a href="{% url 'article' unit.id %}">
+                <button class="btn btn-outline-warning">Więcej</button>
+            </a>
+        </div>
+        
+    {% endfor %}
+
+    {% if is_paginated %}
+        {% if page_obj.has_previous %}
+            <a href="/" class="btn btn-outline-warning">Pierwsza</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-warning"><</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if num == page_obj.number %}
+                <button class="btn btn-warning">{{ num }}</button>
+            {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+                <a href="?page={{ num }}" class="btn btn-outline-warning">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-warning">></a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-warning">Ostatnia</a>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
+{% block aside %}
+    <img src="https://d1bltcifwhkdae.cloudfront.net/uploads/LP_Photo_Food.jpg" class="img-thumbnail mt-4">
+{% endblock %}
